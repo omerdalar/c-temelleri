@@ -56,9 +56,12 @@ Her kavram iki katmanlı: **A)** mühendis tanımı, **B)** benzetme.
 | Ölçüm | Değer | Yorum |
 |---|---|---|
 | `hello.c` (yorumlar eklenmeden) | 82 B | `ş` ve `ı` UTF-8'de 2'şer bayt |
-| `hello` (derlenmiş) | 15.952 B | Kaynağın ~195 katı: başlık bilgileri + `main` öncesi hazırlık kodu. `printf`'in kendisi içinde yok, çalışırken C kütüphanesinden ödünç alınıyor. |
+| `hello.c` (yorumlar eklendikten sonra) | 277 B | +195 B yorum ve girinti |
+| `hello` (derlenmiş, yorumlu ve yorumsuz) | 15.952 B | Kaynağın ~195 katı: başlık bilgileri + `main` öncesi hazırlık kodu. `printf`'in kendisi içinde yok, çalışırken C kütüphanesinden ödünç alınıyor. |
 | `echo $?` | 0 | `return 0` shell'e ulaştı |
 | İzinler | `hello`: `rwxr-xr-x` · `hello.c`: `rw-r--r--` | `x` (çalıştırma) iznini gcc koydu |
+
+**Yorum kanıtı:** kaynak 82 B'tan 277 B'a büyüdü ama program aynı boyutta kaldı (15.952 B). Derleyici yorumları gerçekten atıyor.
 
 Gömülü bakış: 15.952 B, Arduino Uno'nun program belleğinin (32.768 B) neredeyse yarısı. Bilgisayarda önemsiz, mikrodenetleyicide her bayt sayılır.
 
