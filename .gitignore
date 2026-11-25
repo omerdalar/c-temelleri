@@ -1,2 +1,9 @@
+# Binaries built from the terminal (gcc ... -o <name>)
 hello
 
+# CLion / CMake build output
+cmake-build-*/
+build/
+
+# IDE settings
+.idea/
